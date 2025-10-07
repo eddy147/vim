@@ -1,0 +1,12 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhistcnt =5
+let g:netrw_dirhist_5='/home/eddy/.vim'
+let g:netrw_dirhist_4='/home/eddy/tools/elixir-ls/apps/language_server/lib/language_server'
+let g:netrw_dirhist_3='/home/eddy/tools/elixir-ls/apps/language_server/lib'
+let g:netrw_dirhist_2='/home/eddy/tools/elixir-ls/apps/language_server'
+let g:netrw_dirhist_1='/home/eddy/tools/elixir-ls/apps'
+let g:netrw_dirhist_0='/home/eddy/tools/elixir-ls'
+let g:netrw_dirhist_9='/home/eddy/tools/elixir-ls/apps'
+let g:netrw_dirhist_8='/home/eddy/tools/elixir-ls/apps/language_server'
+let g:netrw_dirhist_7='/home/eddy/tools/elixir-ls/apps/language_server/lib'
+let g:netrw_dirhist_6='/home/eddy/tools/elixir-ls/apps/language_server'
