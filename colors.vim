@@ -6,4 +6,4 @@ set termguicolors
 " colorscheme tokyonight
 
 "colorscheme tokyonight
-colorscheme abstract
+colorscheme lunaperche
