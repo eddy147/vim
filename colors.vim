@@ -5,4 +5,5 @@ set termguicolors
 
 " colorscheme tokyonight
 
-colorscheme tokyonight
+"colorscheme tokyonight
+colorscheme abstract
