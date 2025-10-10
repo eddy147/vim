@@ -5,4 +5,4 @@ set termguicolors
 
 " colorscheme tokyonight
 
-colorscheme happy_hacking
+colorscheme tokyonight
