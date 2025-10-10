@@ -6,6 +6,25 @@ let lspOpts = #{autoHighlightDiags: v:true}
 let lspOpts = #{autoHighlightDiags: v:true}
 autocmd User LspSetup call LspOptionsSet(lspOpts)
 
+" === python:
+" pip install python-lsp-server
+" pip install 'python-lsp-server[all]'
+" when using Python virtual environments (venv, conda, poetry, etc.), the LSP might 
+" only be available when the terminal session (same where vim is launched) is active within that environment. 
+" So launch Vim after activating the virtual environment:
+" [bash]
+" source .venv/bin/activate
+" vim
+"
+" === elixir:
+" cd ~/tools
+" gh repo clone elixir-lsp/elixir-ls
+" cd ~/elixir-ls
+" mix deps.get
+" MIX_ENV=prod mix compile
+" MIX_ENV=prod mix elixir_ls.release2 -o release
+
+
 let lspServers = [
 \   #{
 \     name: 'python-lsp-server',
