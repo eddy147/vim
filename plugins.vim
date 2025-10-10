@@ -32,4 +32,5 @@ call s:ensure('ghifarit53/tokyonight-vim')
 call s:ensure('jdsimcoe/abstract.vim')
 call s:ensure('Badacadabra/vim-archery')
 call s:ensure('yorickpeterse/happy_hacking.vim')
+call s:ensure('vim/colorschemes')
 

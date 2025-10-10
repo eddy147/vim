@@ -7,6 +7,7 @@ set softtabstop=2
 set tabstop=2
 set smartindent
 set backspace=indent,eol,start
+set noshowmode "Don't show mode in command line, we use lightline.vim
 syntax on
 
 " autosave options
