@@ -1,4 +1,6 @@
 " FZF keymaps (requires Plug 'junegunn/fzf.vim')
+" To make sure fzf ignores the files in .gitignore, put this in your .zshrc:
+" export FZF_DEFAULT_COMMAND='rg --files --hidden --ignore-file .gitignore'
 
 " Files
 nnoremap <leader>ff :Files<CR>
