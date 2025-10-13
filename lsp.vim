@@ -53,8 +53,10 @@ nnoremap gd :LspGotoDefinition<CR>
 nnoremap gr :LspShowReferences<CR>
 nnoremap K  :LspHover<CR>
 nnoremap gl :LspDiag current<CR>
-nnoremap <leader>nd :LspDiag next \| LspDiag current<CR>
-nnoremap <leader>pd :LspDiag prev \| LspDiag current<CR>
+" nnoremap <leader>nd :LspDiag next \| LspDiag current<CR>
+" nnoremap <leader>pd :LspDiag prev \| LspDiag current<CR>
+nnoremap <Tab> :LspDiag next \| LspDiag current<CR>
+nnoremap <S-Tab>pd :LspDiag prev \| LspDiag current<CR>
 inoremap <silent> <C-Space> <C-x><C-o>
 
 " Set omnifunc for completion

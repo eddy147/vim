@@ -1,3 +1,4 @@
+set background=dark
 set number
 set path+=**
 set wildignore+=*/_build/*,*/deps/*,*/node_modules/*,*/.elixir-ls/*,*/.elixir-tools/*,*/.lexical/*

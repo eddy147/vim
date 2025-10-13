@@ -7,4 +7,5 @@ set background=dark
 " colorscheme tokyonight
 " colorscheme lunaperche
 " colorscheme codedark
+" colorscheme sorbet
 colorscheme sorbet
