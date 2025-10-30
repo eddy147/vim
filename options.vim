@@ -1,15 +1,15 @@
+filetype plugin indent on
 set background=dark
+set backspace=indent,eol,start
+set expandtab 
+set noshowmode "Don't show mode in command line, we use lightline.vim
 set number
 set path+=**
-set wildignore+=*/_build/*,*/deps/*,*/node_modules/*,*/.elixir-ls/*,*/.elixir-tools/*,*/.lexical/*
-filetype plugin indent on
-set expandtab 
 set shiftwidth=2
+set smartindent
 set softtabstop=2
 set tabstop=2
-set smartindent
-set backspace=indent,eol,start
-set noshowmode "Don't show mode in command line, we use lightline.vim
+set wildignore+=*/_build/*,*/deps/*,*/node_modules/*,*/.elixir-ls/*,*/.elixir-tools/*,*/.lexical/*
 syntax on
 " "unnamedplus" uses the + register, which corresponds to the clipboard accessible via Ctrl + C / Ctrl + V.
 " "unnamed" uses the * register, which corresponds to the selection clipboard on Linux (the one used by middle-click paste).
