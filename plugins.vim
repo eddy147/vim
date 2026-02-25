@@ -27,7 +27,10 @@ call s:ensure('tpope/vim-commentary')
 call s:ensure('itchyny/lightline.vim')
 call s:ensure('elixir-editors/vim-elixir.git')
 call s:ensure('907th/vim-auto-save')
+
 " colorschemes
+
+call s:ensure('tomasiser/vim-code-dark')
 call s:ensure('ghifarit53/tokyonight-vim')
 call s:ensure('jdsimcoe/abstract.vim')
 call s:ensure('Badacadabra/vim-archery')

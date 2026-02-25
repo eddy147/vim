@@ -20,6 +20,9 @@ set clipboard = "unnamedplus"
 " autosave options
 let g:auto_save_events = ["InsertLeave"]
 
+" Completion options
+set completeopt=menuone,noinsert,noselect
+
 " json
 au! BufRead,BufNewFile *.json set filetype=javascript
 au! BufRead,BufNewFile *.jsonl set filetype=javascript

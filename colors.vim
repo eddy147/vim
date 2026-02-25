@@ -5,8 +5,11 @@ set background=dark
 " let g:tokyonight_enable_italic = 0
 
 " colorscheme tokyonight
-colorscheme lunaperche
+" colorscheme lunaperche
 " colorscheme codedark
 " colorscheme sorbet
 " colorscheme evening
+" colorscheme wildcharm
+colorscheme habamax
+" colorscheme archery
 
