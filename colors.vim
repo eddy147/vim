@@ -4,12 +4,15 @@ set background=dark
 " let g:tokyonight_style = 'night' " available: night, storm
 " let g:tokyonight_enable_italic = 0
 
-" colorscheme tokyonight
-" colorscheme lunaperche
-" colorscheme codedark
-" colorscheme sorbet
-" colorscheme evening
-" colorscheme wildcharm
-colorscheme habamax
-" colorscheme archery
+"colorscheme tokyonight
+colorscheme lunaperche
+"colorscheme codedark
+"colorscheme sorbet
+"colorscheme evening
+"colorscheme wildcharm
+"colorscheme habamax
+"colorscheme archery
+"colorscheme slate
+"colorscheme koehler
+"colorscheme happy_hacking
 
