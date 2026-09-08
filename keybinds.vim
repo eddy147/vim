@@ -23,3 +23,8 @@ endfunction
 
 nnoremap <silent> <F4> :call <SID>CopyFilePathToClipboard()<CR>
 nnoremap <silent> <leader>yf :call <SID>CopyFilePathToClipboard()<CR>
+
+" buffer navigation
+nnoremap <S-h> :bp<CR>
+nnoremap <S-l> :bn<CR>
+

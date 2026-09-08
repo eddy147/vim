@@ -1,5 +1,4 @@
 filetype plugin indent on
-set background=dark
 set backspace=indent,eol,start
 set expandtab 
 set ignorecase "if you want to search case sensitie, add I: %s/bla/foo/gI, or :set ic and after :set noic
@@ -16,7 +15,7 @@ set wildignore+=*/_build/*,*/deps/*,*/node_modules/*,*/.elixir-ls/*,*/.elixir-to
 syntax on
 " "unnamedplus" uses the + register, which corresponds to the clipboard accessible via Ctrl + C / Ctrl + V.
 " "unnamed" uses the * register, which corresponds to the selection clipboard on Linux (the one used by middle-click paste).
-set clipboard = "unnamedplus"
+set clipboard^=unnamed,unnamedplus
 
 " autosave options
 let g:auto_save_events = ["InsertLeave"]
@@ -27,3 +26,6 @@ set completeopt=menuone,noinsert,noselect
 " json
 au! BufRead,BufNewFile *.json set filetype=javascript
 au! BufRead,BufNewFile *.jsonl set filetype=javascript
+
+" fzf, also defined in ~/.config/fish/conf.d/fzf.fish
+let $FZF_DEFAULT_COMMAND = 'rg --files --hidden --follow --glob "!.git/*"'
