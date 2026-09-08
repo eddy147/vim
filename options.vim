@@ -24,8 +24,11 @@ let g:auto_save_events = ["InsertLeave"]
 set completeopt=menuone,noinsert,noselect
 
 " json
-au! BufRead,BufNewFile *.json set filetype=javascript
-au! BufRead,BufNewFile *.jsonl set filetype=javascript
+autocmd BufRead,BufNewFile *.json set filetype=javascript
+autocmd BufRead,BufNewFile *.jsonl set filetype=javascript
+
+" elixir
+autocmd BufRead,BufNewFile *.heex,*.leex setfiletype elixir
 
 " fzf, also defined in ~/.config/fish/conf.d/fzf.fish
 let $FZF_DEFAULT_COMMAND = 'rg --files --hidden --follow --glob "!.git/*"'
