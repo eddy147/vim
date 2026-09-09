@@ -6,7 +6,7 @@
 nnoremap <leader>ff :Files<CR>
 nnoremap <leader>fo :History<CR>
 nnoremap <leader>fb :Buffers<CR>
-nnoremap <leader>fq :CList<CR>    " For quickfix list
+nnoremap <leader>fq :copen<CR>    " Shows errors. Also :clist
 nnoremap <leader>fh :Helptags<CR>
 
 " Grep current string
