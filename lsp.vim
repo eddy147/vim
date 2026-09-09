@@ -65,3 +65,9 @@ autocmd User LspSetup call LspOptionsSet(#{
       \   diagSignInfoText: '»',
       \   diagSignHintText: '⚑',
       \ })
+
+" Auto-format using LSP before saving for supported filetypes
+augroup LspAutoFormat
+  autocmd!
+  autocmd BufWritePre *.ex,*.exs,*.heex,*.py,*.vim,*.json,*.jsonl LspFormat
+augroup END
