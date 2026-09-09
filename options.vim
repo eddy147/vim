@@ -26,8 +26,8 @@ set clipboard^=unnamed,unnamedplus
 let g:auto_save_events = ["InsertLeave"]
 
 " json
-autocmd BufRead,BufNewFile *.json set filetype=javascript
-autocmd BufRead,BufNewFile *.jsonl set filetype=javascript
+autocmd BufRead,BufNewFile *.json,*.jsonl set filetype=json
+let g:vim_json_conceal = 0
 
 " elixir
 autocmd BufRead,BufNewFile *.heex,*.leex setfiletype elixir
