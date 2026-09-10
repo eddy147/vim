@@ -27,6 +27,7 @@ call s:ensure('itchyny/lightline.vim')
 call s:ensure('elixir-editors/vim-elixir.git')
 call s:ensure('907th/vim-auto-save')
 call s:ensure('mhinz/vim-signify')
+call s:ensure('ap/vim-buftabline')
 
 " colorschemes
 
@@ -37,4 +38,6 @@ call s:ensure('Badacadabra/vim-archery')
 call s:ensure('yorickpeterse/happy_hacking.vim')
 call s:ensure('vim/colorschemes')
 call s:ensure('kamil-stachowski/flatwhite-vim')
+call s:ensure('romainl/vim-sweet16')
+call s:ensure('rafi/awesome-vim-colorschemes')
 

@@ -24,7 +24,20 @@ endfunction
 nnoremap <silent> <F4> :call <SID>CopyFilePathToClipboard()<CR>
 nnoremap <silent> <leader>yf :call <SID>CopyFilePathToClipboard()<CR>
 
-" buffer navigation
-nnoremap <S-h> :bp<CR>
-nnoremap <S-l> :bn<CR>
+" Cycle buffers with Tab / Shift-Tab
+nnoremap <Tab> :bnext<CR>
+nnoremap <S-Tab> :bprevious<CR>
 
+" Close current buffer without breaking splits
+nnoremap <leader>bd :bdelete<CR>
+
+" Cycle through open buffers
+nnoremap <silent> [b :bprevious<CR>
+nnoremap <silent> ]b :bnext<CR>
+
+" Or map to Tab / Shift-Tab
+nnoremap <Tab> :bnext<CR>
+nnoremap <S-Tab> :bprevious<CR>
+
+" Close current buffer without closing window layout
+nnoremap <leader>bd :bdelete<CR>

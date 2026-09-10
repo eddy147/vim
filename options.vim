@@ -17,6 +17,10 @@ set wildignore+=*/_build/*,*/deps/*,*/node_modules/*,*/.elixir-ls/*,*/.elixir-to
 
 let g:auto_save = 1
 
+" show buffers in tabs
+set showtabline=2 "1 = only if multiple tabs, 2=always
+let g:buftabline_show = 1
+
 syntax on
 " "unnamedplus" uses the + register, which corresponds to the clipboard accessible via Ctrl + C / Ctrl + V.
 " "unnamed" uses the * register, which corresponds to the selection clipboard on Linux (the one used by middle-click paste).
