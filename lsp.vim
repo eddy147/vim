@@ -1,7 +1,3 @@
-" logging
-" let g:lsp_log_verbose = 1
-" let g:lsp_log_file = expand('~/vim-lsp.log')
-
 " Enable diagnostics highlighting
 let lspOpts = #{autoHighlightDiags: v:true}
 autocmd User LspSetup call LspOptionsSet(lspOpts)
@@ -13,16 +9,16 @@ let lspServers = [
 \     filetype: ['python'],
 \     path: 'pylsp',
 \     args: []
-\   },      
+\   },
 \   #{
 \     name: 'vim-language-server',
-\     filetype: ['vim', '.vimrc'],
+\     filetype: ['vim'],
 \     path: 'vim-language-server',
 \     args: ['--stdio']
 \   },
 \   #{
 \     name: 'elixir-ls',
-\     filetype: ['elixir', 'heex'],
+\     filetype: ['elixir', 'heex', 'eelixir'],
 \     path: '/home/eddy/tools/elixir-ls/release/language_server.sh',
 \     args: []
 \   },
@@ -30,21 +26,29 @@ let lspServers = [
 
 autocmd User LspSetup call LspAddServer(lspServers)
 
+" Custom diagnostic sign characters
+autocmd User LspSetup call LspOptionsSet(#{
+\     diagSignErrorText: '✘',
+\     diagSignWarningText: '▲',
+\     diagSignInfoText: '»',
+\     diagSignHintText: '⚑',
+\ })
+
 " === Key mappings ===
-nnoremap gd :LspGotoDefinition<CR>
-nnoremap gr :LspShowReferences<CR>
-nnoremap K  :LspHover<CR>
-nnoremap gl :LspDiag current<CR>
-nnoremap <leader>x :LspDiag show<CR>
-nnoremap <leader>nd :LspDiag next \| LspDiag current<CR>
-nnoremap <leader>pd :LspDiag prev \| LspDiag current<CR>
+nnoremap gd          :LspGotoDefinition<CR>
+nnoremap gr          :LspShowReferences<CR>
+nnoremap K           :LspHover<CR>
+nnoremap gl          :LspDiag current<CR>
+nnoremap <leader>x   :LspDiag show<CR>
+nnoremap <leader>nd  :LspDiag next \| LspDiag current<CR>
+nnoremap <leader>pd  :LspDiag prev \| LspDiag current<CR>
 
 " Completion mappings
 inoremap <silent> <C-Space> <C-x><C-o>
 
 function! s:check_back_space() abort
   let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~ '\s'
+  return !col || getline('.')[col - 1] =~ '\s'
 endfunction
 
 inoremap <silent><expr> <Tab>
@@ -53,18 +57,7 @@ inoremap <silent><expr> <Tab>
       \ "\<C-x>\<C-o>"
 
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<CR>"
-
-" Set omnifunc for completion
-autocmd FileType php setlocal omnifunc=lsp#complete
-
-" Custom diagnostic sign characters
-autocmd User LspSetup call LspOptionsSet(#{
-      \   diagSignErrorText: '✘',
-      \   diagSignWarningText: '▲',
-      \   diagSignInfoText: '»',
-      \   diagSignHintText: '⚑',
-      \ })
+inoremap <expr> <CR>    pumvisible() ? "\<C-y>" : "\<CR>"
 
 " Auto-format using LSP before saving for supported filetypes
 augroup LspAutoFormat

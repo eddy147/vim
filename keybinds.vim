@@ -1,43 +1,31 @@
 let mapleader = " "
 
+" File navigation
 nnoremap <leader>e :Ex<CR>
-nnoremap <C-p> :find 
+nnoremap <C-p> :find
 
-" copy current filename to system clipboard (fallbacks to unnamed register)
+" Copy absolute file path to system clipboard
 function! s:CopyFilePathToClipboard()
   let l:path = expand('%:p')
-  if has('clipboard')
-    call setreg('+', l:path)
-    call setreg('*', l:path)
-  elseif executable('wl-copy')
-    call system('wl-copy', l:path)
-  elseif executable('xclip')
-    call system('xclip -selection clipboard', l:path)
-  elseif executable('pbcopy')
-    call system('pbcopy', l:path)
-  else
-    let @" = l:path
-  endif
+  call setreg('+', l:path)
+  call setreg('*', l:path)
   echo 'Copied: ' . l:path
 endfunction
 
-nnoremap <silent> <F4> :call <SID>CopyFilePathToClipboard()<CR>
 nnoremap <silent> <leader>yf :call <SID>CopyFilePathToClipboard()<CR>
+nnoremap <silent> <F4>       :call <SID>CopyFilePathToClipboard()<CR>
 
-" Cycle buffers with Tab / Shift-Tab
-nnoremap <Tab> :bnext<CR>
+" Buffer navigation
+nnoremap <Tab>   :bnext<CR>
 nnoremap <S-Tab> :bprevious<CR>
+nnoremap [b      :bprevious<CR>
+nnoremap ]b      :bnext<CR>
 
-" Close current buffer without breaking splits
+" Close current buffer
 nnoremap <leader>bd :bdelete<CR>
 
-" Cycle through open buffers
-nnoremap <silent> [b :bprevious<CR>
-nnoremap <silent> ]b :bnext<CR>
+" Fuzzy buffer picker (fzf.vim)
+nnoremap <leader>b :Buffers<CR>
 
-" Or map to Tab / Shift-Tab
-nnoremap <Tab> :bnext<CR>
-nnoremap <S-Tab> :bprevious<CR>
-
-" Close current buffer without closing window layout
-nnoremap <leader>bd :bdelete<CR>
+" Replace all non-breaking spaces in the file with standard spaces
+nnoremap <leader>snbsp :%s/\%u00a0/ /g<CR>

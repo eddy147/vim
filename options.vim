@@ -4,6 +4,8 @@ set completeopt=menuone,noinsert
 set cursorline
 set expandtab 
 set ignorecase "if you want to search case sensitie, add I: %s/bla/foo/gI, or :set ic and after :set noic
+set list
+set listchars+=nbsp:·
 set noshowmode "Don't show mode in command line, we use lightline.vim
 set number
 set path+=**
@@ -36,7 +38,7 @@ autocmd BufRead,BufNewFile *.json,*.jsonl set filetype=json
 let g:vim_json_conceal = 0
 
 " elixir
-autocmd BufRead,BufNewFile *.heex,*.leex setfiletype elixir
+autocmd BufRead,BufNewFile *.heex,*.leex set filetype=elixir
 
-" fzf, also defined in ~/.config/fish/conf.d/fzf.fish
+"fzf, also defined in ~/.config/fish/conf.d/fzf.fish
 let $FZF_DEFAULT_COMMAND = 'rg --files --hidden --ignore-file .gitignore'
