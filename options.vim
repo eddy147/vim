@@ -1,11 +1,13 @@
 filetype plugin indent on
 set backspace=indent,eol,start
 set completeopt=menuone,noinsert
+set cursorline
 set expandtab 
 set ignorecase "if you want to search case sensitie, add I: %s/bla/foo/gI, or :set ic and after :set noic
 set noshowmode "Don't show mode in command line, we use lightline.vim
 set number
 set path+=**
+set relativenumber
 set report=0 
 set shiftwidth=2
 set signcolumn=yes
