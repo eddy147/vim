@@ -2,7 +2,7 @@ let mapleader = " "
 
 " File navigation
 nnoremap <leader>e :Ex<CR>
-nnoremap <C-p> :find
+nnoremap <C-p> :find 
 
 " Copy absolute file path to system clipboard
 function! s:CopyFilePathToClipboard()

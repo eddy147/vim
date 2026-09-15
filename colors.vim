@@ -6,7 +6,7 @@ set background=dark
 
 " colorscheme angr
 "colorscheme PaperColor
-colorscheme jellybeans
+colorscheme lunaperche
 " colorscheme molokayo
 " colorscheme spacecamp_lite
 
