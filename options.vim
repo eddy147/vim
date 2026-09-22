@@ -2,6 +2,9 @@ filetype plugin indent on
 set backspace=indent,eol,start
 set completeopt=menuone,noinsert
 set cursorline
+if exists('+cursorlineopt')
+  set cursorlineopt=both
+endif
 set expandtab 
 set ignorecase "if you want to search case sensitie, add I: %s/bla/foo/gI, or :set ic and after :set noic
 set list
@@ -42,3 +45,6 @@ autocmd BufRead,BufNewFile *.heex,*.leex set filetype=elixir
 
 "fzf, also defined in ~/.config/fish/conf.d/fzf.fish
 let $FZF_DEFAULT_COMMAND = 'rg --files --hidden --ignore-file .gitignore'
+
+"puml
+autocmd BufRead,BufNewFile *.puml,*.plantuml set filetype=plantuml

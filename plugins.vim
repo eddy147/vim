@@ -28,6 +28,7 @@ call s:ensure('elixir-editors/vim-elixir.git')
 call s:ensure('907th/vim-auto-save')
 call s:ensure('mhinz/vim-signify')
 call s:ensure('ap/vim-buftabline')
+call s:ensure('aklt/plantuml-syntax')
 
 " colorschemes
 
