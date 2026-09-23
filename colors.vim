@@ -5,10 +5,13 @@ set background=dark
 " let g:tokyonight_enable_italic = 0
 
 " colorscheme angr
-"colorscheme PaperColor
-colorscheme focuspoint
+" colorscheme PaperColor
+" colorscheme focuspoint
 " colorscheme molokayo
-" colorscheme spacecamp_lite
+source ~/.vim/gemini.vim
+
+command! GeminiDark source ~/.vim/gemini.vim
+command! GeminiLight source ~/.vim/gemini-light.vim
 
 " Automatically adapt active line number for both light and dark themes
 augroup AdaptCursorLineNr

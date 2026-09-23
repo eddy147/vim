@@ -34,11 +34,7 @@ call s:ensure('aklt/plantuml-syntax')
 
 call s:ensure('tomasiser/vim-code-dark')
 call s:ensure('ghifarit53/tokyonight-vim')
-call s:ensure('jdsimcoe/abstract.vim')
-call s:ensure('Badacadabra/vim-archery')
-call s:ensure('yorickpeterse/happy_hacking.vim')
-call s:ensure('vim/colorschemes')
 call s:ensure('kamil-stachowski/flatwhite-vim')
-call s:ensure('romainl/vim-sweet16')
 call s:ensure('rafi/awesome-vim-colorschemes')
+call s:ensure('sjl/badwolf')
 

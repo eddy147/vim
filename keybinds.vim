@@ -30,6 +30,10 @@ nnoremap <leader>b :Buffers<CR>
 " Replace all non-breaking spaces in the file with standard spaces
 nnoremap <leader>snbsp :%s/\%u00a0/ /g<CR>
 
+" Git diff helpers (vim-signify)
+nnoremap <leader>gd :SignifyDiff<CR>
+nnoremap <leader>gD :SignifyDiff!<CR>
+
 function! s:PlantumlCommand(file, format)
   if executable('plantuml')
     return 'plantuml -t' . a:format . ' ' . shellescape(a:file)
