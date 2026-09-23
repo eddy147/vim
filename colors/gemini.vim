@@ -11,9 +11,11 @@ let s:p = {
       \ 'bg': '#000000',
       \ 'fg': '#FFFFFF',
       \ 'selection': '#44475A',
+      \ 'tab_inactive_bg': '#222222',
+      \ 'tab_inactive_fg': '#80868b',
       \ 'comment': '#80868b',
       \ 'red': '#ff4433',
-      \ 'orange': '#FFB86C',
+      \ 'orange': '#FFa500',
       \ 'yellow': '#ffdb0f',
       \ 'green': '#50fa7b',
       \ 'purple': '#969dff',
@@ -51,9 +53,9 @@ call s:hi('Comment', s:p.comment, '', '', '')
 call s:hi('Constant', s:p.blue, '', '', '')
 call s:hi('String', s:p.green, '', '', '')
 call s:hi('Character', s:p.green, '', '', '')
-call s:hi('Number', s:p.red, '', '', '')
+call s:hi('Number', s:p.yellow, '', '', '')
 call s:hi('Boolean', s:p.blue, '', '', '')
-call s:hi('Float', s:p.red, '', '', '')
+call s:hi('Float', s:p.yellow, '', '', '')
 call s:hi('Identifier', s:p.blue, '', '', '')
 call s:hi('Function', s:p.yellow, '', '', '')
 call s:hi('Statement', s:p.purple, '', '', '')
@@ -68,7 +70,7 @@ call s:hi('Include', s:p.purple, '', '', '')
 call s:hi('Define', s:p.purple, '', '', '')
 call s:hi('Macro', s:p.purple, '', '', '')
 call s:hi('PreCondit', s:p.blue, '', '', '')
-call s:hi('Type', s:p.blue, '', '', '')
+call s:hi('Type', s:p.yellow, '', '', '')
 call s:hi('StorageClass', s:p.pink, '', '', '')
 call s:hi('Structure', s:p.yellow, '', '', '')
 call s:hi('Typedef', s:p.yellow, '', '', '')
@@ -88,6 +90,9 @@ call s:hi('VertSplit', s:p.black, '', '', '')
 call s:hi('WinSeparator', s:p.black, '', '', '')
 call s:hi('StatusLine', s:p.white, s:p.selection, '', '')
 call s:hi('StatusLineNC', s:p.comment, '', '', '')
+call s:hi('TabLineFill', s:p.comment, s:p.bg, '', '')
+call s:hi('TabLine', s:p.white, s:p.tab_inactive_bg, '', '')
+call s:hi('TabLineSel', s:p.white, s:p.bg, 'bold', '')
 call s:hi('Pmenu', s:p.white, s:p.menu, '', '')
 call s:hi('PmenuSel', s:p.white, s:p.selection, '', '')
 call s:hi('PmenuSbar', '', s:p.bg, '', '')
@@ -135,6 +140,7 @@ call s:hi('diffNewFile', s:p.green, '', '', '')
 call s:hi('diffOldFile', s:p.red, '', '', '')
 
 call s:hi('elixirAtom', s:p.pink, '', '', '')
+call s:hi('elixirId', s:p.fg, '', '', '')
 
 call s:link('FloatBorder', 'NormalFloat')
 call s:link('WildMenu', 'PmenuSel')

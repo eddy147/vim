@@ -8,10 +8,8 @@ set background=dark
 " colorscheme PaperColor
 " colorscheme focuspoint
 " colorscheme molokayo
-source ~/.vim/gemini.vim
+colorscheme gemini
 
-command! GeminiDark source ~/.vim/gemini.vim
-command! GeminiLight source ~/.vim/gemini-light.vim
 
 " Automatically adapt active line number for both light and dark themes
 augroup AdaptCursorLineNr
