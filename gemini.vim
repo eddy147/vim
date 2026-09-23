@@ -134,6 +134,8 @@ call s:hi('diffFile', s:p.nontext, '', '', '')
 call s:hi('diffNewFile', s:p.green, '', '', '')
 call s:hi('diffOldFile', s:p.red, '', '', '')
 
+call s:hi('elixirAtom', s:p.pink, '', '', '')
+
 call s:link('FloatBorder', 'NormalFloat')
 call s:link('WildMenu', 'PmenuSel')
 call s:link('QuickFixLine', 'Search')

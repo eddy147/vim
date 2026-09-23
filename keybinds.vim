@@ -15,6 +15,25 @@ endfunction
 nnoremap <silent> <leader>yf :call <SID>CopyFilePathToClipboard()<CR>
 nnoremap <silent> <F4>       :call <SID>CopyFilePathToClipboard()<CR>
 
+function! s:InspectHighlightUnderCursor()
+  let l:id = synID(line('.'), col('.'), 1)
+  let l:syntax = synIDattr(l:id, 'name')
+  let l:resolved = synIDattr(synIDtrans(l:id), 'name')
+
+  if empty(l:syntax)
+    let l:syntax = 'NONE'
+  endif
+
+  if empty(l:resolved)
+    let l:resolved = 'NONE'
+  endif
+
+  echom 'syntax=' . l:syntax . ' resolved=' . l:resolved
+  execute 'verbose hi ' . l:resolved
+endfunction
+
+nnoremap <silent> <leader>hi :call <SID>InspectHighlightUnderCursor()<CR>
+
 " Buffer navigation
 nnoremap <Tab>   :bnext<CR>
 nnoremap <S-Tab> :bprevious<CR>

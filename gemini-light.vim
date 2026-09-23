@@ -4,30 +4,30 @@ if exists('syntax_on')
   syntax reset
 endif
 
-set background=dark
+set background=light
 let g:colors_name = 'gemini-light'
 
 let s:p = {
-      \ 'bg': '#292A35',
-      \ 'fg': '#F6F6F5',
-      \ 'selection': '#7C7F8A',
-      \ 'comment': '#70747f',
-      \ 'red': '#DD6E6B',
-      \ 'orange': '#FDC38E',
-      \ 'yellow': '#E8EDA2',
-      \ 'green': '#87E58E',
-      \ 'purple': '#BAA0E8',
-      \ 'cyan': '#A7DFEF',
-      \ 'blue': '#A7DFEF',
-      \ 'pink': '#E48CC1',
-      \ 'bright_red': '#E1837F',
-      \ 'bright_green': '#97EDA2',
-      \ 'bright_blue': '#D0B5F3',
-      \ 'menu': '#21222C',
-      \ 'visual': '#3E4452',
-      \ 'nontext': '#3B4048',
-      \ 'white': '#F6F6F5',
-      \ 'black': '#1C1C1C'
+      \ 'bg': '#fafafa',
+      \ 'fg': '#05070a',
+      \ 'selection': '#9ea9bc',
+      \ 'comment': '#2f3745',
+      \ 'red': '#6f120c',
+      \ 'orange': '#6e3600',
+      \ 'yellow': '#554000',
+      \ 'green': '#0f4f1f',
+      \ 'purple': '#311432',
+      \ 'cyan': '#0f4e63',
+      \ 'blue': '#123f84',
+      \ 'pink': '#6f2054',
+      \ 'bright_red': '#560b07',
+      \ 'bright_green': '#083e18',
+      \ 'bright_blue': '#23265f',
+      \ 'menu': '#d2d8e3',
+      \ 'visual': '#a9b3c6',
+      \ 'nontext': '#6c7688',
+      \ 'white': '#05070a',
+      \ 'black': '#000000'
       \ }
 
 function! s:hi(group, fg, bg, attr, sp) abort
@@ -133,6 +133,8 @@ call s:hi('diffRemoved', s:p.red, '', '', '')
 call s:hi('diffFile', s:p.nontext, '', '', '')
 call s:hi('diffNewFile', s:p.green, '', '', '')
 call s:hi('diffOldFile', s:p.red, '', '', '')
+
+call s:hi('elixirAtom', s:p.pink, '', '', '')
 
 call s:link('FloatBorder', 'NormalFloat')
 call s:link('WildMenu', 'PmenuSel')
