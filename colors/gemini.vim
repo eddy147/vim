@@ -95,6 +95,7 @@ call s:hi('TabLine', s:p.white, s:p.tab_inactive_bg, '', '')
 call s:hi('TabLineSel', s:p.white, s:p.bg, 'bold', '')
 call s:hi('Pmenu', s:p.white, s:p.menu, '', '')
 call s:hi('PmenuSel', s:p.white, s:p.selection, '', '')
+call s:hi('WildMenu', s:p.white, s:p.black, '', '')
 call s:hi('PmenuSbar', '', s:p.bg, '', '')
 call s:hi('PmenuThumb', '', s:p.selection, '', '')
 call s:hi('Visual', '', s:p.visual, '', '')
@@ -143,7 +144,6 @@ call s:hi('elixirAtom', s:p.pink, '', '', '')
 call s:hi('elixirId', s:p.fg, '', '', '')
 
 call s:link('FloatBorder', 'NormalFloat')
-call s:link('WildMenu', 'PmenuSel')
 call s:link('QuickFixLine', 'Search')
 
 delfunction s:hi

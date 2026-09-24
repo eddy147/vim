@@ -29,6 +29,7 @@ call s:ensure('907th/vim-auto-save')
 call s:ensure('mhinz/vim-signify')
 call s:ensure('ap/vim-buftabline')
 call s:ensure('aklt/plantuml-syntax')
+call s:ensure('iamcco/markdown-preview.nvim')
 
 " colorschemes
 call s:ensure('ghifarit53/tokyonight-vim')

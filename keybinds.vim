@@ -125,3 +125,8 @@ augroup PlantumlKeybinds
   autocmd FileType plantuml nnoremap <buffer> <leader>us :PlantumlSvg<CR>
   autocmd FileType plantuml nnoremap <buffer> <leader>uv :PlantumlPreview<CR>
 augroup END
+
+augroup MarkdownPreviewKeybinds
+  autocmd!
+  autocmd FileType markdown nnoremap <buffer> <leader>uv :MarkdownPreviewToggle<CR>
+augroup END
