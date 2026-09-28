@@ -96,5 +96,5 @@ inoremap <expr> <CR>    pumvisible() ? "\<C-y>" : "\<CR>"
 " Auto-format using LSP before saving for supported filetypes
 augroup LspAutoFormat
   autocmd!
-  autocmd BufWritePre *.ex,*.exs,*.heex,*.py,*.vim,*.json,*.jsonc,*.jsonl,*.xml,*.xsd,*.xsl,*.xslt,*.svg LspFormat
+  autocmd BufWritePre *.ex,*.exs,*.heex,*.py,*.vim,*.json,*.jsonc,*.xml,*.xsd,*.xsl,*.xslt,*.svg LspFormat
 augroup END
