@@ -46,7 +46,9 @@ let g:vim_json_conceal = 0
 autocmd BufRead,BufNewFile *.heex,*.leex set filetype=elixir
 
 "fzf, also defined in ~/.config/fish/conf.d/fzf.fish
-let $FZF_DEFAULT_COMMAND = 'rg --files --hidden --ignore-file .gitignore'
+" Ripgrep file search for fzf (:Files)
+" Includes dotfiles (.env, .formatter.exs) while strictly ignoring .git/
+let $FZF_DEFAULT_COMMAND = 'rg --files --hidden --follow --glob "!.git/*"'
 
 "puml
 autocmd BufRead,BufNewFile *.puml,*.plantuml set filetype=plantuml
