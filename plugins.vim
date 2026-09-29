@@ -32,7 +32,6 @@ call s:ensure('aklt/plantuml-syntax')
 call s:ensure('iamcco/markdown-preview.nvim')
 
 " colorschemes
-call s:ensure('ghifarit53/tokyonight-vim')
 call s:ensure('kamil-stachowski/flatwhite-vim')
-call s:ensure('rafi/awesome-vim-colorschemes')
-call s:ensure('sjl/badwolf')
+call s:ensure('devsjc/vim-jb')
+call s:ensure('eddy147/gemini.vim')

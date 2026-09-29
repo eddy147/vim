@@ -37,8 +37,8 @@ set clipboard^=unnamed,unnamedplus
 let g:auto_save_events = ["InsertLeave"]
 
 " json
-autocmd BufRead,BufNewFile *.json setfiletype json
-autocmd BufRead,BufNewFile *.jsonl setfiletype jsonl
+autocmd BufRead,BufNewFile *.json set filetype=json
+autocmd BufRead,BufNewFile *.jsonl set filetype=jsonl
 autocmd FileType jsonl setlocal syntax=json
 let g:vim_json_conceal = 0
 

@@ -52,6 +52,8 @@ autocmd User LspSetup call LspOptionsSet(#{
 " === Key mappings ===
 nnoremap gd          :LspGotoDefinition<CR>
 nnoremap gr          :LspShowReferences<CR>
+nnoremap <leader>ls  :LspServer show status<CR>
+nnoremap <leader>li  :echo 'ft=' . &filetype . ' syntax=' . &syntax<CR>
 
 function! s:lsp_hover_focus_preview() abort
   silent! LspHover
