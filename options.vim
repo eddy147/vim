@@ -22,7 +22,6 @@ set softtabstop=2
 set tabstop=2
 set wildignore+=*/_build/*,*/deps/*,*/node_modules/*,*/.elixir-ls/*,*/.elixir-tools/*,*/.lexical/*
 
-let g:auto_save = 1
 
 " show buffers in tabs
 set showtabline=2 "1 = only if multiple tabs, 2=always
@@ -34,6 +33,8 @@ syntax on
 set clipboard^=unnamed,unnamedplus
 
 " autosave options
+" I disabled it for now, because it made everything slow
+let g:auto_save = 0
 let g:auto_save_events = ["InsertLeave"]
 
 " json

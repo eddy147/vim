@@ -1,37 +1,59 @@
 " plugins.vim - Dead simple plugin manager
 " Just source this file in your vimrc
 let s:plugin_dir = expand('~/.vim/plugged')
+let s:plugins = [
+      \ 'junegunn/fzf',
+      \ 'junegunn/fzf.vim',
+      \ 'yegappan/lsp',
+      \ 'ojroques/vim-oscyank',
+      \ 'tpope/vim-commentary',
+      \ 'itchyny/lightline.vim',
+      \ 'elixir-editors/vim-elixir.git',
+      \ '907th/vim-auto-save',
+      \ 'mhinz/vim-signify',
+      \ 'ap/vim-buftabline',
+      \ 'aklt/plantuml-syntax',
+      \ 'iamcco/markdown-preview.nvim',
+      \ 'ghifarit53/tokyonight-vim',
+      \ 'kamil-stachowski/flatwhite-vim',
+      \ 'kamil-stachowski/flatwhite-vim',
+      \ 'eddy147/gemini.vim',
+      \ ]
 
-" Install a plugin if it doesn't exist
-function! s:ensure(repo)
+function! s:ensure(repo) abort
   let name = split(a:repo, '/')[-1]
   let path = s:plugin_dir . '/' . name
-  
-  if !isdirectory(path)
-    if !isdirectory(s:plugin_dir)
-      call mkdir(s:plugin_dir, 'p')
-    endif
-    execute '!git clone --depth=1 git@github.com:' . a:repo . ' ' . shellescape(path)
+
+  if !isdirectory(s:plugin_dir)
+    call mkdir(s:plugin_dir, 'p')
   endif
-  
+
+  if !isdirectory(path)
+    call system('git clone --depth=1 git@github.com:' . a:repo . ' ' . shellescape(path))
+  endif
+
   execute 'set runtimepath+=' . fnameescape(path)
 endfunction
 
-" Your plugins
-call s:ensure('junegunn/fzf')
-call s:ensure('junegunn/fzf.vim')
-call s:ensure('yegappan/lsp')
-call s:ensure('ojroques/vim-oscyank')
-call s:ensure('tpope/vim-commentary')
-call s:ensure('itchyny/lightline.vim')
-call s:ensure('elixir-editors/vim-elixir.git')
-call s:ensure('907th/vim-auto-save')
-call s:ensure('mhinz/vim-signify')
-call s:ensure('ap/vim-buftabline')
-call s:ensure('aklt/plantuml-syntax')
-call s:ensure('iamcco/markdown-preview.nvim')
+function! UpdateMyPlugins() abort
+  for repo in s:plugins
+    let name = split(repo, '/')[-1]
+    let path = s:plugin_dir . '/' . name
 
-" colorschemes
-call s:ensure('kamil-stachowski/flatwhite-vim')
-call s:ensure('devsjc/vim-jb')
-call s:ensure('eddy147/gemini.vim')
+   if isdirectory(path)
+      let out = system('git -C ' . shellescape(path) . ' pull --ff-only')
+      echom '[' . name . '] ' . substitute(out, '\n\+$', '', '')
+    else
+      echom '[' . name . '] not installed'
+    endif
+  endfor
+endfunction
+
+command! PluginUpdate call UpdateMyPlugins()
+nnoremap <leader>pu :PluginUpdate<CR>
+
+
+for repo in s:plugins
+  call s:ensure(repo)
+endfor
+
