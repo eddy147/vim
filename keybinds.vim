@@ -53,56 +53,61 @@ nnoremap <leader>snbsp :%s/\%u00a0/ /g<CR>
 nnoremap <leader>gd :SignifyDiff<CR>
 nnoremap <leader>gD :SignifyDiff!<CR>
 
-function! s:PlantumlCommand(file, format)
+function! s:PlantumlCommand(file, format, outdir)
+  let l:format_flag = ' -t' . a:format
+  let l:out_flag = ' -o ' . shellescape(a:outdir)
+
   if executable('plantuml')
-    return 'plantuml -t' . a:format . ' ' . shellescape(a:file)
+    return 'plantuml' . l:format_flag . l:out_flag . ' ' . shellescape(a:file)
   endif
 
   if executable('docker')
     let l:dir = fnamemodify(a:file, ':h')
     let l:name = fnamemodify(a:file, ':t')
-    return 'docker run --rm -v ' . shellescape(l:dir) . ':/workspace -w /workspace plantuml/plantuml -t' . a:format . ' ' . shellescape(l:name)
+    return 'docker run --rm -v ' . shellescape(l:dir) . ':/workspace -v /tmp:/tmp -w /workspace plantuml/plantuml' . l:format_flag . l:out_flag . ' ' . shellescape(l:name)
   endif
 
   return ''
 endfunction
 
-function! s:PlantumlExport(format)
+function! s:PlantumlExport(format, outdir)
   let l:file = expand('%:p')
 
   if empty(l:file)
     echohl ErrorMsg | echom 'PlantUML: no file in current buffer.' | echohl None
-    return
+    return ''
   endif
 
-  let l:cmd = s:PlantumlCommand(l:file, a:format)
+  let l:cmd = s:PlantumlCommand(l:file, a:format, a:outdir)
 
   if empty(l:cmd)
     echohl ErrorMsg | echom 'PlantUML: install `plantuml` or Docker.' | echohl None
-    return
+    return ''
   endif
 
   call system(l:cmd)
 
   if v:shell_error
     echohl ErrorMsg | echom 'PlantUML export failed.' | echohl None
-    return
+    return ''
   endif
 
-  echom 'PlantUML exported: ' . fnamemodify(l:file, ':r') . '.' . a:format
+  " Path where PlantUML placed the file
+  let l:output_file = a:outdir . '/' . fnamemodify(l:file, ':t:r') . '.' . a:format
+  echom 'PlantUML exported: ' . l:output_file
+  return l:output_file
 endfunction
 
 function! s:PlantumlPreview()
-  call s:PlantumlExport('png')
+  " Export directly to /tmp
+  let l:image = s:PlantumlExport('png', '/tmp')
 
-  if v:shell_error
+  if empty(l:image) || v:shell_error
     return
   endif
 
-  let l:image = expand('%:p:r') . '.png'
-
   if !filereadable(l:image)
-    echohl ErrorMsg | echom 'PlantUML: preview image not found.' | echohl None
+    echohl ErrorMsg | echom 'PlantUML: preview image not found in /tmp.' | echohl None
     return
   endif
 
@@ -115,8 +120,11 @@ function! s:PlantumlPreview()
   echom 'PlantUML preview opened: ' . l:image
 endfunction
 
-command! PlantumlPng call <SID>PlantumlExport('png')
-command! PlantumlSvg call <SID>PlantumlExport('svg')
+" Export commands (Exports PNG/SVG alongside the source file)
+command! PlantumlPng call <SID>PlantumlExport('png', expand('%:p:h'))
+command! PlantumlSvg call <SID>PlantumlExport('svg', expand('%:p:h'))
+
+" Preview command (Always exports PNG to /tmp and opens it)
 command! PlantumlPreview call <SID>PlantumlPreview()
 
 augroup PlantumlKeybinds
