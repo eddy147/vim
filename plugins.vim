@@ -17,8 +17,13 @@ let s:plugins = [
       \ 'ghifarit53/tokyonight-vim',
       \ 'kamil-stachowski/flatwhite-vim',
       \ 'kamil-stachowski/flatwhite-vim',
+      \ 'joshdick/onedark.vim',
       \ 'eddy147/gemini.vim',
       \ ]
+
+let g:onedark_config = {
+      \ 'style': 'deep',
+\}
 
 function! s:ensure(repo) abort
   let name = split(a:repo, '/')[-1]

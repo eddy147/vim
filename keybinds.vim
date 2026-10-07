@@ -53,6 +53,28 @@ nnoremap <leader>snbsp :%s/\%u00a0/ /g<CR>
 nnoremap <leader>gd :SignifyDiff<CR>
 nnoremap <leader>gD :SignifyDiff!<CR>
 
+function! s:GitBlameCurrentLine()
+  let l:file = expand('%:p')
+
+  if empty(l:file)
+    echohl ErrorMsg | echom 'Git blame: no file in current buffer.' | echohl None
+    return
+  endif
+
+  if !executable('git')
+    echohl ErrorMsg | echom 'Git blame: `git` is not installed.' | echohl None
+    return
+  endif
+
+  let l:line = line('.')
+  let l:dir = fnamemodify(l:file, ':h')
+  let l:name = fnamemodify(l:file, ':t')
+
+  execute '!git -C ' . shellescape(l:dir) . ' blame -L ' . l:line . ',' . l:line . ' -- ' . shellescape(l:name)
+endfunction
+
+nnoremap <silent> <leader>gl :call <SID>GitBlameCurrentLine()<CR>
+
 function! s:PlantumlCommand(file, format, outdir)
   let l:format_flag = ' -t' . a:format
   let l:out_flag = ' -o ' . shellescape(a:outdir)

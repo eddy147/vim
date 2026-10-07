@@ -6,8 +6,10 @@ set background=dark
 
 "high contrast: pablo,gemini,koehler,zaibatsu
 " colorscheme retrobox
-colorscheme slate
+" colorscheme slate
 " colorscheme zaibatsu
+colorscheme sorbet
+" colorscheme onedark
 
 
 " Automatically adapt active line number for both light and dark themes
