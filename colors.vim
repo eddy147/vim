@@ -6,9 +6,9 @@ set background=dark
 
 "high contrast: pablo,gemini,koehler,zaibatsu
 " colorscheme retrobox
-" colorscheme slate
+colorscheme slate
 " colorscheme zaibatsu
-colorscheme sorbet
+" colorscheme sorbet
 " colorscheme onedark
 
 
