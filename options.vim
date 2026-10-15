@@ -1,27 +1,37 @@
 filetype plugin indent on
+set background=dark
 set backspace=indent,eol,start
+set belloff=all
 set completeopt=menuone,noinsert
+set confirm
 set cursorline
 if exists('+cursorlineopt')
   set cursorlineopt=both
 endif
 set expandtab 
+set fileformat=unix
 set ignorecase "if you want to search case sensitie, add I: %s/bla/foo/gI, or :set ic and after :set noic
 set list
 set listchars+=nbsp:·
+set listchars+=eol:¬,tab:>·,trail:~,extends:>,precedes:<,space:.
+set nobackup
 set noshowmode "Don't show mode in command line, we use lightline.vim
 set number
 set path+=**
 set relativenumber
 set report=0 
+set scrolloff=2
+set showcmd
+set showmatch
 set shiftwidth=2
 set signcolumn=yes
 set smartcase
 set smartindent
+set smarttab
 set softtabstop=2
 set tabstop=2
+set title
 set wildignore+=*/_build/*,*/deps/*,*/node_modules/*,*/.elixir-ls/*,*/.elixir-tools/*,*/.lexical/*
-
 
 " show buffers in tabs
 set showtabline=2 "1 = only if multiple tabs, 2=always
@@ -49,7 +59,8 @@ autocmd BufRead,BufNewFile *.heex,*.leex set filetype=elixir
 "fzf, also defined in ~/.config/fish/conf.d/fzf.fish
 " Ripgrep file search for fzf (:Files)
 " Includes dotfiles (.env, .formatter.exs) while strictly ignoring .git/
-let $FZF_DEFAULT_COMMAND = 'rg --files --hidden --follow --glob "!.git/*"'
+" let $FZF_DEFAULT_COMMAND = 'rg --files --hidden --follow --glob "!.git/*"'
+let $FZF_DEFAULT_COMMAND = 'fd --type f --hidden --follow --exclude .git'
 
 "puml
 autocmd BufRead,BufNewFile *.puml,*.plantuml set filetype=plantuml
