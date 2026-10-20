@@ -16,8 +16,7 @@ let s:plugins = [
       \ 'iamcco/markdown-preview.nvim',
       \ 'ghifarit53/tokyonight-vim',
       \ 'kamil-stachowski/flatwhite-vim',
-      \ 'kamil-stachowski/flatwhite-vim',
-      \ 'joshdick/onedark.vim',
+      \ 'dracula/vim',
       \ 'eddy147/gemini.vim',
       \ ]
 

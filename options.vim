@@ -1,4 +1,5 @@
 filetype plugin indent on
+scriptencoding utf-8
 set background=dark
 set backspace=indent,eol,start
 set belloff=all
@@ -12,9 +13,9 @@ set expandtab
 set fileformat=unix
 set ignorecase "if you want to search case sensitie, add I: %s/bla/foo/gI, or :set ic and after :set noic
 set list
-set listchars+=nbsp:·
-set listchars+=eol:¬,tab:>·,trail:~,extends:>,precedes:<,space:.
 set nobackup
+set list lcs=trail:·,tab:»-,eol:↵,nbsp:·
+" exe "set listchars=conceal:\u22ef,tab:\u2595\u2014,trail:\u02d1,precedes:\u2026,extends:\u2026,eol:\uac,nbsp:\ub7"
 set noshowmode "Don't show mode in command line, we use lightline.vim
 set number
 set path+=**
@@ -23,6 +24,7 @@ set report=0
 set scrolloff=2
 set showcmd
 set showmatch
+set report=0
 set shiftwidth=2
 set signcolumn=yes
 set smartcase
