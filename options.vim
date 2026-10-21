@@ -66,3 +66,10 @@ let $FZF_DEFAULT_COMMAND = 'fd --type f --hidden --follow --exclude .git'
 
 "puml
 autocmd BufRead,BufNewFile *.puml,*.plantuml set filetype=plantuml
+
+"auto reload buffers
+set autoread
+augroup auto_reload_files
+  autocmd!
+  autocmd FocusGained,BufEnter,CursorHold * checktime
+augroup END
