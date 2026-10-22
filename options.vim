@@ -73,3 +73,6 @@ augroup auto_reload_files
   autocmd!
   autocmd FocusGained,BufEnter,CursorHold * checktime
 augroup END
+
+" Explicitly tell markdown-preview to use system node
+let g:mkdp_node_path = expand('~/.asdf/shims/node')
