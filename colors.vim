@@ -7,7 +7,8 @@ set background=dark
 "high contrast: pablo,gemini,koehler,zaibatsu
 " colorscheme retrobox
 " colorscheme slate
-colorscheme wildcharm
+" colorscheme wildcharm
+colorscheme mytheme
 
 
 " Automatically adapt active line number for both light and dark themes
