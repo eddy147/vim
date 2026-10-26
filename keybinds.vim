@@ -160,3 +160,8 @@ augroup MarkdownPreviewKeybinds
   autocmd!
   autocmd FileType markdown nnoremap <buffer> <leader>uv :MarkdownPreviewToggle<CR>
 augroup END
+
+
+" Format any LSP-supported buffer manually.
+nnoremap <leader>f :LspFormat<CR>
+

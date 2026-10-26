@@ -8,33 +8,25 @@ g:plugins = [
       \ 'junegunn/fzf.vim',
       \ 'yegappan/lsp',
       \ 'ojroques/vim-oscyank',
-      \ 'tpope/vim-commentary',
       \ 'itchyny/lightline.vim',
       \ 'elixir-editors/vim-elixir',
-      \ '907th/vim-auto-save',
       \ 'mhinz/vim-signify',
-      \ 'ap/vim-buftabline',
       \ 'aklt/plantuml-syntax',
       \ 'iamcco/markdown-preview.nvim',
-      \ 'ghifarit53/tokyonight-vim',
-      \ 'kamil-stachowski/flatwhite-vim',
-      \ 'dracula/vim',
       \ 'eddy147/gemini.vim',
       \ ]
 
-# 1. Startup: Clone missing plugins and register runtimepaths
+# 1. Startup: Register installed plugins without performing network work.
 def EnsurePlugins()
   for repo in g:plugins
     var name = split(repo, '/')[-1]->substitute('\.git$', '', '')
     var path = plugin_dir .. '/' .. name
 
-    if !isdirectory(plugin_dir)
-      mkdir(plugin_dir, 'p')
-    endif
-
     if !isdirectory(path)
-      echom printf('[plugins.vim] Cloning %s...', name)
-      system('git clone --depth=1 git@github.com:' .. repo .. ' ' .. shellescape(path))
+      echohl WarningMsg
+      echom printf('[plugins.vim] Missing %s — run :PluginInstall', repo)
+      echohl None
+      continue
     endif
 
     execute 'set runtimepath+=' .. fnameescape(path)
@@ -43,7 +35,29 @@ enddef
 
 EnsurePlugins()
 
-# 2. Async Parallel Updates
+# 2. Explicitly install any missing plugins.
+def InstallMyPlugins()
+  if !isdirectory(plugin_dir)
+    mkdir(plugin_dir, 'p')
+  endif
+
+  for repo in g:plugins
+    var name = split(repo, '/')[-1]->substitute('\.git$', '', '')
+    var path = plugin_dir .. '/' .. name
+
+    if !isdirectory(path)
+      echom printf('[PluginInstall] Cloning %s...', repo)
+      system(['git', 'clone', '--depth=1',
+            \ 'https://github.com/' .. repo .. '.git', path])
+    endif
+  endfor
+
+  echom '[PluginInstall] Done. Restart Vim to load newly installed plugins.'
+enddef
+
+command! PluginInstall InstallMyPlugins()
+
+# 3. Async parallel updates for installed plugins.
 def UpdateMyPlugins()
   var active_jobs = 0
   var total = len(g:plugins)

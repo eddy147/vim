@@ -23,7 +23,9 @@ let lspServers = [
 \     name: 'elixir-ls',
 \     filetype: ['elixir', 'heex', 'eelixir'],
 \     path: '/home/eddy/tools/elixir-ls/release/language_server.sh',
-\     args: []
+\     args: [],
+\     rootSearch: ['mix.exs', '.git'],
+\     runIfSearch: ['mix.exs', '.git']
 \   },
 \   #{
 \     name: 'vscode-json-language-server',
@@ -95,8 +97,8 @@ inoremap <silent><expr> <Tab>
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 inoremap <expr> <CR>    pumvisible() ? "\<C-y>" : "\<CR>"
 
-" Auto-format using LSP before saving for supported filetypes
+" Format Elixir automatically on save.
 augroup LspAutoFormat
   autocmd!
-  autocmd BufWritePre *.ex,*.exs,*.heex,*.py,*.vim,*.json,*.jsonc,*.xml,*.xsd,*.xsl,*.xslt,*.svg LspFormat
+  autocmd BufWritePre *.ex,*.exs,*.heex,*.leex LspFormat
 augroup END

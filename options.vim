@@ -1,3 +1,4 @@
+packadd! comment
 filetype plugin indent on
 scriptencoding utf-8
 set background=dark
@@ -35,28 +36,16 @@ set tabstop=2
 set title
 set wildignore+=*/_build/*,*/deps/*,*/node_modules/*,*/.elixir-ls/*,*/.elixir-tools/*,*/.lexical/*
 
-" show buffers in tabs
-set showtabline=2 "1 = only if multiple tabs, 2=always
-let g:buftabline_show = 1
-
 syntax on
 " "unnamedplus" uses the + register, which corresponds to the clipboard accessible via Ctrl + C / Ctrl + V.
 " "unnamed" uses the * register, which corresponds to the selection clipboard on Linux (the one used by middle-click paste).
 set clipboard^=unnamed,unnamedplus
-
-" autosave options
-" I disabled it for now, because it made everything slow
-let g:auto_save = 0
-let g:auto_save_events = ["InsertLeave"]
 
 " json
 autocmd BufRead,BufNewFile *.json set filetype=json
 autocmd BufRead,BufNewFile *.jsonl set filetype=jsonl
 autocmd FileType jsonl setlocal syntax=json
 let g:vim_json_conceal = 0
-
-" elixir
-autocmd BufRead,BufNewFile *.heex,*.leex set filetype=elixir
 
 "fzf, also defined in ~/.config/fish/conf.d/fzf.fish
 " Ripgrep file search for fzf (:Files)
@@ -71,7 +60,7 @@ autocmd BufRead,BufNewFile *.puml,*.plantuml set filetype=plantuml
 set autoread
 augroup auto_reload_files
   autocmd!
-  autocmd FocusGained,BufEnter,CursorHold * checktime
+  autocmd FocusGained,BufEnter * checktime
 augroup END
 
 " Explicitly tell markdown-preview to use system node
