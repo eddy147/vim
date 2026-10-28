@@ -8,7 +8,7 @@ set background=dark
 " colorscheme retrobox
 " colorscheme slate
 " colorscheme wildcharm
-colorscheme mytheme
+colorscheme gemini
 
 
 " Automatically adapt active line number for both light and dark themes
