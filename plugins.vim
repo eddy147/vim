@@ -14,6 +14,7 @@ g:plugins = [
       \ 'aklt/plantuml-syntax',
       \ 'dracula/vim',
       \ 'yorickpeterse/Autumn.vim',
+      \ 'iamcco/markdown-preview.nvim',
       \ 'eddy147/gemini.vim',
       \ ]
 
