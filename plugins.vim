@@ -12,7 +12,8 @@ g:plugins = [
       \ 'elixir-editors/vim-elixir',
       \ 'mhinz/vim-signify',
       \ 'aklt/plantuml-syntax',
-      \ 'iamcco/markdown-preview.nvim',
+      \ 'dracula/vim',
+      \ 'yorickpeterse/Autumn.vim',
       \ 'eddy147/gemini.vim',
       \ ]
 
