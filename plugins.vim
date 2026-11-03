@@ -14,6 +14,7 @@ g:plugins = [
       \ 'aklt/plantuml-syntax',
       \ 'iamcco/markdown-preview.nvim',
       \ 'eddy147/gemini.vim',
+      \ 'catppuccin/vim'
       \ ]
 
 # 1. Startup: Register installed plugins without performing network work.
