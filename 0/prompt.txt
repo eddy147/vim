@@ -1,0 +1,7 @@
+when using a light colorscheme, like flatwhite, and using <leader>+ff, to search for file, the preview of the file is opened in a dark colorscheme with white background. in other words: i can not read anything from the preview.
+
+---
+
+thank you.
+there is also an error in plugins.vim :
+plugins.vim|42 col 5-6 error| E492: Not an editor command: mkdir(plugin_dir, 'p')↵

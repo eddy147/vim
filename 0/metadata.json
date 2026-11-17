@@ -1,0 +1,44 @@
+{
+  "cli_version": "0.13.1",
+  "checkpoint_id": "01M7MTABQ7F7BS6AV5YMXVBJKN",
+  "session_id": "01a1e990-7805-7c92-9c62-e5c7aecb93f5",
+  "strategy": "manual-commit",
+  "created_at": "2026-11-17T13:14:54.750362989Z",
+  "branch": "main",
+  "checkpoints_count": 2,
+  "save_step_count": 2,
+  "files_touched": [
+    "fzf.vim",
+    "lsp.vim",
+    "vimrc"
+  ],
+  "agent": "Codex",
+  "model": "gpt-6.1-terra",
+  "turn_id": "33a8a1275e28",
+  "compact_transcript_start": 0,
+  "token_usage": {
+    "input_tokens": 96610,
+    "cache_creation_tokens": 0,
+    "cache_read_tokens": 3408070,
+    "output_tokens": 18587,
+    "api_call_count": 53,
+    "subagent_tokens_complete": true
+  },
+  "redaction": {
+    "replacements": 8,
+    "layers": {
+      "betterleaks": 12,
+      "connection_string": 0,
+      "credential_key": 0,
+      "credential_value": 2,
+      "credentialed_uri": 2,
+      "entropy": 0,
+      "key_context": 0,
+      "provider_token": 0,
+      "shell_stdin": 0
+    }
+  },
+  "session_metrics": {
+    "turn_count": 2
+  }
+}
