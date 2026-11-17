@@ -1,3 +1,21 @@
+" Detect Vim9 before Vim's normal filetype detection runs.
+function! s:detect_vim9() abort
+  for l:line in getline(1, '$')
+    if l:line =~# '^\s*\%("\|$\)'
+      continue
+    endif
+    if l:line =~# '^\s*vim9script\>'
+      setfiletype vim.vim9
+    endif
+    break
+  endfor
+endfunction
+
+augroup DetectVim9
+  autocmd!
+  autocmd BufRead,BufNewFile *.vim ++nested call <SID>detect_vim9()
+augroup END
+
 source ~/.vim/options.vim
 source ~/.vim/keybinds.vim
 " Keep Vim-signify's deleted-line marker compact: `_2` means two deleted lines.

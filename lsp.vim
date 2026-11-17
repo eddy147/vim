@@ -20,6 +20,14 @@ let lspServers = [
 \     args: ['--stdio']
 \   },
 \   #{
+\     name: 'vim9-language-server',
+\     filetype: ['vim.vim9'],
+\     path: 'vim-language-server',
+\     args: ['--stdio'],
+\     languageId: {-> 'vim'},
+\     initializationOptions: #{diagnostic: #{enable: v:false}}
+\   },
+\   #{
 \     name: 'elixir-ls',
 \     filetype: ['elixir', 'heex', 'eelixir'],
 \     path: '/home/eddy/tools/elixir-ls/release/language_server.sh',
