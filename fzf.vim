@@ -2,29 +2,28 @@
 " To make sure fzf ignores the files in .gitignore, put this in your .zshrc:
 " export FZF_DEFAULT_COMMAND='rg --files --hidden --ignore-file .gitignore'
 
-function! s:Preview() abort
-  let l:preview = fzf#vim#with_preview()
-  if &background ==# 'light'
-    let l:index = index(get(l:preview, 'options', []), '--preview')
-    if l:index >= 0
-      " Set the theme on the preview itself: the shell may reset BAT_THEME.
-      let l:preview.options[l:index + 1] = 'env BAT_THEME=GitHub ' . l:preview.options[l:index + 1]
-    endif
-  endif
-  return l:preview
+" Apply the active background to every fzf.vim file preview.
+let g:fzf_vim = get(g:, 'fzf_vim', {})
+let g:fzf_vim.preview_bash = expand('~/.vim/bin/fzf-preview-bash')
+
+function! s:SyncPreviewBackground() abort
+  let $FZF_VIM_PREVIEW_BACKGROUND = &background
 endfunction
 
-function! s:Grep(query, bang) abort
-  let l:command = 'rg --column --line-number --no-heading --color=always --smart-case -- ' . fzf#shellescape(a:query)
-  call fzf#vim#grep(l:command, s:Preview(), a:bang)
-endfunction
+augroup FzfPreviewBackground
+  autocmd!
+  autocmd VimEnter * call <SID>SyncPreviewBackground()
+  autocmd ColorScheme * call <SID>SyncPreviewBackground()
+  autocmd OptionSet background call <SID>SyncPreviewBackground()
+augroup END
+call s:SyncPreviewBackground()
 
-command! -bang -nargs=? -complete=dir FzfFiles call fzf#vim#files(<q-args>, <SID>Preview(), <bang>0)
-command! -bang -nargs=* Rg call <SID>Grep(<q-args>, <bang>0)
-command! -bang -nargs=* FzfRg call <SID>Grep(<q-args>, <bang>0)
+" Keep the earlier command names as aliases for the standard fzf pickers.
+command! -bang -nargs=? -complete=dir FzfFiles call fzf#vim#files(<q-args>, fzf#vim#with_preview(), <bang>0)
+command! -bang -nargs=* FzfRg call fzf#vim#grep('rg --column --line-number --no-heading --color=always --smart-case -- ' . fzf#shellescape(<q-args>), fzf#vim#with_preview(), <bang>0)
 
 " Files
-nnoremap <leader>ff :FzfFiles<CR>
+nnoremap <leader>ff :Files<CR>
 nnoremap <leader>fo :History<CR>
 nnoremap <leader>fb :Buffers<CR>
 nnoremap <leader>fq :copen<CR>    " Shows errors. Also :clist
@@ -40,4 +39,4 @@ nnoremap <leader>fg :Rg<Space>
 nnoremap <leader>fc :execute 'Rg ' . expand('%:t:r')<CR>
 
 " Find files in your Vim config
-nnoremap <leader>fi :FzfFiles ~/.vim<CR>
+nnoremap <leader>fi :Files ~/.vim<CR>
