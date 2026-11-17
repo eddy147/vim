@@ -65,3 +65,6 @@ augroup END
 
 " Explicitly tell markdown-preview to use system node
 let g:mkdp_node_path = expand('~/.asdf/shims/node')
+
+" Automatically write modified buffers before deleting or wiping them out, then delete the swap file
+autocmd BufDelete,BufWipeout * silent! wall | call delete(expand('<afile>:p:h') . '/.' . expand('<afile>:t') . '.swp')
