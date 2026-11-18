@@ -1,0 +1,8 @@
+#!/bin/sh
+
+# Fish may reset BAT_THEME, so set it after the preview shell has started.
+if [ "${FZF_VIM_PREVIEW_BACKGROUND-}" = light ]; then
+  export BAT_THEME=GitHub
+fi
+
+exec bash "$@"
