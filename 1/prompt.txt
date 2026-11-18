@@ -1,0 +1,36 @@
+Do I have something in my config to convert camelCase to snake_case and vice versa?
+
+---
+
+can we do something like this:
+
+Changing Inside Visual Selection
+Sometimes, you don't want to change the whole line. In which case, you can use \%V as a delimiter in your :substitute command search regex.
+
+Here is an example of a :CamelCase and a :SnakeCase command which work both line-wise and selection-wise:
+
+function! s:Camelize(range) abort
+  if a:range == 0
+    s#\(\%(\<\l\+\)\%(_\)\@=\)\|_\(\l\)#\u\1\2#g
+  else
+    s#\%V\(\%(\<\l\+\)\%(_\)\@=\)\|_\(\l\)\%V#\u\1\2#g
+  endif
+endfunction
+
+function! s:Snakeize(range) abort
+  if a:range == 0
+    s#\C\(\<\u[a-z0-9]\+\|[a-z0-9]\+\)\(\u\)#\l\1_\l\2#g
+  else
+    s#\%V\C\(\<\u[a-z0-9]\+\|[a-z0-9]\+\)\(\u\)\%V#\l\1_\l\2#g
+  endif
+endfunction
+
+command! -range CamelCase silent! call <SID>Camelize(<range>)
+command! -range SnakeCase silent! call <SID>Snakeize(<range>)
+Change CamelCase to snake_case and reverse on word under cursor
+" CamelCase to snake_case
+:keeppatterns s:<C-R><C-W>:\=substitute(submatch(0), '\(\u\?\l\+\)\(\u\)', '\l\1_\l\2', 'g'):
+
+" snake_case to CamelCase
+:keeppatterns s:<C-R><C-W>:\=substitute(submatch(0),'\(\l\+\)_\?', '\u\1', 'g'):
+<C-R><C-W> above denotes pressing the Ctrl-R, Ctrl-W keys while you are entering those commands on the command line. In case you are creating a mapping for those commands, for example in your .vimrc, <C-R><C-W> are characters that you need to enter literally.
