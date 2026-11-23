@@ -10,6 +10,7 @@ g:plugins = [
       \ 'ojroques/vim-oscyank',
       \ 'itchyny/lightline.vim',
       \ 'elixir-editors/vim-elixir',
+      \ 'rust-lang/rust.vim',
       \ 'mhinz/vim-signify',
       \ 'aklt/plantuml-syntax',
       \ 'iamcco/markdown-preview.nvim',

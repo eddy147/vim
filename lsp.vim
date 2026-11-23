@@ -47,6 +47,14 @@ let lspServers = [
 \     path: 'lemminx',
 \     args: ['--stdio']
 \   },
+\   #{
+\     name: 'rust-analyzer',
+\     filetype: ['rust'],
+\     path: 'rust-analyzer',
+\     args: [],
+\     rootSearch: ['Cargo.toml', '.git'],
+\     runIfSearch: ['Cargo.toml', '.git']
+\   },
 \ ]
 
 autocmd User LspSetup call LspAddServer(lspServers)
@@ -87,6 +95,11 @@ nnoremap <leader>pd  :LspDiag prev \| LspDiag current<CR>
 augroup LspHoverPreviewKeys
   autocmd!
   autocmd BufWinEnter LspHover nnoremap <silent><buffer> q :pclose<CR>
+augroup END
+
+augroup LspAutoFormat
+  autocmd!
+  autocmd BufWritePre *.ex,*.exs,*.heex,*.leex,*.rs LspFormat
 augroup END
 
 " Completion mappings
