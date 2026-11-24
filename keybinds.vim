@@ -73,7 +73,7 @@ function! s:GitBlameCurrentLine()
   execute '!git -C ' . shellescape(l:dir) . ' blame -L ' . l:line . ',' . l:line . ' -- ' . shellescape(l:name)
 endfunction
 
-nnoremap <silent> <leader>gl :call <SID>GitBlameCurrentLine()<CR>
+nnoremap <silent> <leader>gb :call <SID>GitBlameCurrentLine()<CR>
 
 function! s:PlantumlCommand(file, format, outdir)
   let l:format_flag = ' -t' . a:format

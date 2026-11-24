@@ -40,7 +40,7 @@ endfunction
 " --------------------------------------------------------------------------------------------- >>> -
 " - palette ----------------------------------------------------------------------------------- <<< -
 
-let s:base1				= "#403c37"
+let s:base1				= "#2c2a26"
 let s:base2				= "#93836c"
 let s:base3				= "#b9a992"
 let s:base4				= "#dcd3c6"
@@ -74,7 +74,7 @@ let s:white				= "#ffffff"
 " - definitions ------------------------------------------------------------------------------- <<< -
 
 call s:hi ("Comment",		s:base3,			s:base7,		"italic")
-call s:hi ("Constant",		s:teal_text,		s:teal_bg,		"none")
+call s:hi ("Constant",		s:base1,		s:teal_bg,		"none")
 call s:hi ("Cursor",		"",				"",					"none")
 call s:hi ("CursorLine",	"",					s:base6,		"none")
 call s:hi ("DiffAdd",		"",					s:diff_add,		"none")
@@ -88,11 +88,11 @@ call s:hi ("Normal",		s:base1,			s:base7,		"none")
 call s:hi ("Search",		"",					s:base6,		"none")
 call s:hi ("SpellBad",		s:white,			s:diff_delete,	"none")
 call s:hi ("SpellRare",		s:diff_change_dark,	s:diff_change,	"none")
-call s:hi ("Statement",		s:orange_text,		s:orange_bg,	"none")
+call s:hi ("Statement",		s:base1,		s:orange_bg,	"none")
 call s:hi ("StatusLine",	s:base7,			s:base1,		"bold")
 call s:hi ("StatusLineNC",	s:base1,			s:base3,		"none")
-call s:hi ("String",		s:green_text,		s:green_bg,		"none")
-call s:hi ("Type",			s:purple_text,		s:purple_bg,	"none")
+call s:hi ("String",		s:base1,		s:green_bg,		"none")
+call s:hi ("Type",			s:base1,		s:purple_bg,	"none")
 call s:hi ("Underlined",	"",					"",				"underline")
 call s:hi ("Visual",		"",					s:base5,		"none")
 
