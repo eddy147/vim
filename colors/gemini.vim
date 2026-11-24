@@ -14,16 +14,16 @@ let s:p = {
       \ 'tab_inactive_bg': '#222222',
       \ 'tab_inactive_fg': '#80868b',
       \ 'comment': '#80868b',
-      \ 'red': '#ff4433',
+      \ 'red': '#ff5e16',
       \ 'func_call': '#ff5a59',
       \ 'orange': '#FFa500',
-      \ 'yellow': '#ffdb0f',
+      \ 'yellow': '#ffbe00',
       \ 'green': '#50fa7b',
       \ 'purple': '#969dff',
       \ 'cyan': '#8BE9FD',
       \ 'blue': '#4fa0ff',
       \ 'pink': '#FF96DA',
-      \ 'bright_red': '#FF6E6E',
+      \ 'bright_red': '#FF6e6e',
       \ 'bright_green': '#69FF94',
       \ 'bright_blue': '#D6ACFF',
       \ 'menu': '#21222C',
@@ -74,7 +74,7 @@ call s:hi('Include', s:p.purple, '', '', '')
 call s:hi('Define', s:p.purple, '', '', '')
 call s:hi('Macro', s:p.purple, '', '', '')
 call s:hi('PreCondit', s:p.blue, '', '', '')
-call s:hi('Type', s:p.yellow, '', '', '')
+call s:hi('Type', s:p.red, '', '', '')
 call s:hi('StorageClass', s:p.pink, '', '', '')
 call s:hi('Structure', s:p.yellow, '', '', '')
 call s:hi('Typedef', s:p.yellow, '', '', '')
