@@ -1,0 +1,1 @@
+I thought I had a keybinding that would close the buffer, but not the window. but when I do <leader>bd, (or :bd) the window is also closed
