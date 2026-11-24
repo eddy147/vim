@@ -67,4 +67,11 @@ augroup END
 let g:mkdp_node_path = expand('~/.asdf/shims/node')
 
 " Automatically write modified buffers before deleting or wiping them out, then delete the swap file
-autocmd BufDelete,BufWipeout * silent! wall | call delete(expand('<afile>:p:h') . '/.' . expand('<afile>:t') . '.swp')
+function! s:DeleteBufferSwapFile() abort
+  let l:name = bufname(str2nr(expand('<abuf>')))
+  if !empty(l:name)
+    let l:path = fnamemodify(l:name, ':p')
+    call delete(fnamemodify(l:path, ':h') . '/.' . fnamemodify(l:path, ':t') . '.swp')
+  endif
+endfunction
+autocmd BufDelete,BufWipeout * silent! wall | call <SID>DeleteBufferSwapFile()

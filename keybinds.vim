@@ -40,8 +40,30 @@ nnoremap <S-Tab> :bprevious<CR>
 nnoremap [b      :bprevious<CR>
 nnoremap ]b      :bnext<CR>
 
-" Close current buffer
-nnoremap <leader>bd :bdelete<CR>
+" Delete the current buffer without closing windows that display it.
+function! s:DeleteBufferKeepWindows() abort
+  let l:buffer = bufnr('%')
+  if &modified
+    echohl ErrorMsg | echom 'Save the buffer before deleting it.' | echohl None
+    return
+  endif
+
+  let l:replacement = bufnr('#')
+  if l:replacement == l:buffer || !buflisted(l:replacement)
+    let l:others = filter(getbufinfo({'buflisted': 1}), 'v:val.bufnr != l:buffer')
+    let l:replacement = empty(l:others) ? bufadd('') : l:others[0].bufnr
+  endif
+  call setbufvar(l:replacement, '&buflisted', 1)
+
+  for l:window in win_findbuf(l:buffer)
+    call win_execute(l:window, 'buffer ' . l:replacement)
+  endfor
+  if buflisted(l:buffer) && empty(win_findbuf(l:buffer))
+    execute 'bdelete ' . l:buffer
+  endif
+endfunction
+
+nnoremap <silent> <leader>bd :call <SID>DeleteBufferKeepWindows()<CR>
 
 " Fuzzy buffer picker (fzf.vim)
 nnoremap <leader>b :Buffers<CR>
