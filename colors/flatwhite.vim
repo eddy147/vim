@@ -69,7 +69,7 @@ let s:diff_change_dark	= "#795306"
 let s:diff_delete		= "#ff1414"
 let s:diff_renamed		= "#52aeff"
 let s:white				= "#ffffff"
-
+let s:soft_grey = "#a8a29e"
 " --------------------------------------------------------------------------------------------- >>> -
 " - definitions ------------------------------------------------------------------------------- <<< -
 
@@ -99,6 +99,11 @@ call s:hi ("elixirModuleDeclaration",			s:base1,		s:teal_bg,	"none")
 call s:hi ("elixirAlias",			s:base1,		s:teal_bg,	"none")
 " call s:hi ("elixirVariable",			s:base1,		s:orange_bg,	"none")
 call s:hi ("ElixirAtSigil",			s:base1,		s:orange_bg,	"none")
+call s:hi ("elixirArguments",			s:base1,		s:orange_bg,	"none")
+"fzf TUI
+call s:hi("FzfBorder", s:soft_grey, "", "none")
+call s:hi("FzfCurrentLine", "", s:teal_bg, "none")
+call s:hi ("FzfHeader",		s:teal_text,		"",				"none")
 
 
 hi! link Boolean		Constant
