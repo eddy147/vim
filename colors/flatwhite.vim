@@ -73,7 +73,7 @@ let s:white				= "#ffffff"
 " --------------------------------------------------------------------------------------------- >>> -
 " - definitions ------------------------------------------------------------------------------- <<< -
 
-call s:hi ("Comment",		s:base3,			s:base7,		"italic")
+call s:hi ("Comment",		s:base2,			s:base7,		"none")
 call s:hi ("Constant",		s:base1,		s:teal_bg,		"none")
 call s:hi ("Cursor",		"",				"",					"none")
 call s:hi ("CursorLine",	"",					s:base6,		"none")
@@ -95,6 +95,9 @@ call s:hi ("String",		s:base1,		s:green_bg,		"none")
 call s:hi ("Type",			s:base1,		s:purple_bg,	"none")
 call s:hi ("Underlined",	"",					"",				"underline")
 call s:hi ("Visual",		"",					s:base5,		"none")
+call s:hi ("elixirModuleDeclaration",			s:base1,		s:teal_bg,	"none")
+call s:hi ("elixirAlias",			s:base1,		s:teal_bg,	"none")
+call s:hi ("elixirVariable",			s:base1,		s:orange_bg,	"none")
 
 
 hi! link Boolean		Constant
