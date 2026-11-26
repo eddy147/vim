@@ -5,10 +5,11 @@ set background=dark
 " let g:tokyonight_enable_italic = 0
 
 "high contrast: pablo,gemini,koehler,zaibatsu
-colorscheme papercolor
+" colorscheme papercolor
 " colorscheme slate
 " colorscheme wildcharm
 " colorscheme gemini
+colorscheme flatwhite
 
 
 " Automatically adapt active line number for both light and dark themes

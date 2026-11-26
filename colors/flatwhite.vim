@@ -97,7 +97,8 @@ call s:hi ("Underlined",	"",					"",				"underline")
 call s:hi ("Visual",		"",					s:base5,		"none")
 call s:hi ("elixirModuleDeclaration",			s:base1,		s:teal_bg,	"none")
 call s:hi ("elixirAlias",			s:base1,		s:teal_bg,	"none")
-call s:hi ("elixirVariable",			s:base1,		s:orange_bg,	"none")
+" call s:hi ("elixirVariable",			s:base1,		s:orange_bg,	"none")
+call s:hi ("ElixirAtSigil",			s:base1,		s:orange_bg,	"none")
 
 
 hi! link Boolean		Constant
