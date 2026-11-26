@@ -1,0 +1,7 @@
+I added call s:hi ("elixirModuleDeclaration",			s:base1,		s:purple_bg,	"none")
+but it does not seem to work.
+the Module declarations are still purple
+
+---
+
+sorry, talking about colors/flatwhite.vim pls continue
